@@ -2,8 +2,6 @@
 
 <%@ Register Assembly="DevExpress.Web.v15.2, Version=15.2.20.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 
-
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,18 +19,12 @@
             <dx:ASPxGridView ID="ASPxGridView1" ClientInstanceName="grid" runat="server" AutoGenerateColumns="False" DataSourceID="AccessDataSource1" KeyFieldName="ProductID" OnCustomCallback="ASPxGridView1_CustomCallback">
                 <Settings ShowFilterBar="Visible" />
                 <Columns>
-                    <dx:GridViewDataTextColumn FieldName="ProductID" ReadOnly="True" VisibleIndex="0">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="ProductName" VisibleIndex="1">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="CategoryID" VisibleIndex="2">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="QuantityPerUnit" VisibleIndex="3">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="UnitPrice" VisibleIndex="4">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="UnitsInStock" VisibleIndex="5">
-                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="ProductID" ReadOnly="True" />
+                    <dx:GridViewDataTextColumn FieldName="ProductName" />
+                    <dx:GridViewDataTextColumn FieldName="CategoryID" />
+                    <dx:GridViewDataTextColumn FieldName="QuantityPerUnit" />
+                    <dx:GridViewDataTextColumn FieldName="UnitPrice" />
+                    <dx:GridViewDataTextColumn FieldName="UnitsInStock" />
                 </Columns>
             </dx:ASPxGridView>
             <table>
@@ -52,8 +44,7 @@
                         </dx:ASPxComboBox>
                     </td>
                     <td>
-                        <dx:ASPxTextBox ID="ASPxTextBox1" runat="server" Width="170px">
-                        </dx:ASPxTextBox>
+                        <dx:ASPxTextBox ID="ASPxTextBox1" runat="server" Width="170px" />
                     </td>
                     <td>
                         <dx:ASPxButton ID="ASPxButton1" runat="server" Text="Filter" AutoPostBack="false">
