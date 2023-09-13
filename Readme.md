@@ -12,16 +12,16 @@ This example demonstrates how to programmatically change a column's filter crite
 
 ![Filtered Grid](grid-filter-criteria.png)
 
-In this example, editors below the grid allows users to specify a filter criterion for a column. When a user clicks the **Filter** button, the criterion is applied. The criteria in other columns do not change.
+In this example, editors below the grid allow users to specify a filter criterion for a column. When a user clicks the **Filter** button, the criterion is applied. Criteria applied to other columns do not change.
 
 ## Implementation Details
 
 To programatically modify a column's filter criterion, you need to split the grid filter expression into column filter criteria. You can use the non-published `CriteriaColumnAffinityResolver.SplitByColumnNames` method for this purpose. The method receives the filter expression as a parameter and returns a value of the `Tuple<CriteriaOperator, IDictionary<string, CriteriaOperator>>` type. The tuple's first item is a criteria operator that cannot be parsed during the internal logic execution. Usually it is null. The second item is a dictionary that stores parsed criteria operators and column names.
 
-1. Call the `SplitByColumnNames` method to get a dictionary of column filter criterion.
+1. Call the `SplitByColumnNames` method to get a dictionary of column filter criteria.
 
 ```csharp
-var criterias = CriteriaColumnAffinityResolver.SplitByColumnNames(CriteriaOperator.Parse(targetGrid.FilterExpression)).Item2;
+var criteria = CriteriaColumnAffinityResolver.SplitByColumnNames(CriteriaOperator.Parse(targetGrid.FilterExpression)).Item2;
 ```
 
 2. Change the criteria for the specified column.
@@ -33,16 +33,16 @@ if (FieldName == "ProductName") {
     co = new FunctionOperator("Like", new OperandProperty(FieldName), new OperandValue(value));
 } else
     co = new BinaryOperator(FieldName, value, BinaryOperatorType.Equal);
-if (!criterias.Keys.Contains(FieldName))
-    criterias.Add(FieldName, co); 
+if (!criteria.Keys.Contains(FieldName))
+    criteria.Add(FieldName, co); 
 else
-    criterias[FieldName] = co; 
+    criteria[FieldName] = co; 
 ```
 
 3. Set the new filter expression for the grid.
 
 ```csharp
-targetGrid.FilterExpression = CriteriaOperator.ToString(GroupOperator.And(criterias.Values));
+targetGrid.FilterExpression = CriteriaOperator.ToString(GroupOperator.And(criteria.Values));
 ```
 
 ## Files to Review
