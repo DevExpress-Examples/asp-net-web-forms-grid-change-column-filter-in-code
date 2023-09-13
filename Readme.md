@@ -3,7 +3,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# Grid for ASP.NET Web Forms - How to programmatically change a column's filter in the grid's filter expression
+# Grid for ASP.NET Web Forms - How to programmatically change a column's filter criterion in the grid's filter expression
 <!-- run online -->
 **[[Run Online]](https://codecentral.devexpress.com/e4641/)**
 <!-- run online end -->
