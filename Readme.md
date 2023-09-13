@@ -18,13 +18,13 @@ In this example, editors below the grid allows users to specify a filter criteri
 
 To programatically modify a column's filter criterion, you need to split the grid filter expression into column filter criteria. You can use the non-published `CriteriaColumnAffinityResolver.SplitByColumnNames` method for this purpose. The method receives the filter expression as a parameter and returns a value of the `Tuple<CriteriaOperator, IDictionary<string, CriteriaOperator>>` type. The tuple's first item is a criteria operator that cannot be parsed during the internal logic execution. Usually it is null. The second item is a dictionary that stores parsed criteria operators and column names.
 
-Call the `SplitByColumnNames` method to get a dictionary of column filter criterion.
+1. Call the `SplitByColumnNames` method to get a dictionary of column filter criterion.
 
 ```csharp
 var criterias = CriteriaColumnAffinityResolver.SplitByColumnNames(CriteriaOperator.Parse(targetGrid.FilterExpression)).Item2;
 ```
 
-Change the criteria for the specified column.
+2. Change the criteria for the specified column.
 
 ```csharp
 CriteriaOperator co = null;
@@ -39,7 +39,7 @@ else
     criterias[FieldName] = co; 
 ```
 
-Set the new filter expression for the grid.
+3. Set the new filter expression for the grid.
 
 ```csharp
 targetGrid.FilterExpression = CriteriaOperator.ToString(GroupOperator.And(criterias.Values));
@@ -48,7 +48,7 @@ targetGrid.FilterExpression = CriteriaOperator.ToString(GroupOperator.And(criter
 ## Files to Review
 
 * [Default.aspx](./CS/WebSite/Default.aspx) ([Default.aspx](./VB/WebSite/Default.aspx))
-* [Default.aspx.cs](./CS/WebSite/Default.aspx.cs) ([Default.aspx.vb](./VB/WebSite/Default.aspx.cs))
+* [Default.aspx.cs](./CS/WebSite/Default.aspx.cs) ([Default.aspx.vb](./VB/WebSite/Default.aspx.vb))
 
 ## Documentation
 
