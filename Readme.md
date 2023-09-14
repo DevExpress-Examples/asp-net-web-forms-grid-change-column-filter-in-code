@@ -12,11 +12,11 @@ This example demonstrates how to programmatically change a column's filter crite
 
 ![Filtered Grid](grid-filter-criteria.png)
 
-In this example, editors below the grid allow users to specify a filter criterion for a column. When a user clicks the **Filter** button, the criterion is applied. Criteria applied to other columns do not change.
+In this example, editors below the grid allow users to specify a filter criterion for a column. When a user clicks the **Filter** button, the criterion is applied. Filters applied to other columns do not change.
 
 ## Implementation Details
 
-To programatically modify a column's filter criterion, you need to split the grid filter expression into column filter criteria. You can use the non-published `CriteriaColumnAffinityResolver.SplitByColumnNames` method for this purpose. The method receives the filter expression as a parameter and returns a value of the `Tuple<CriteriaOperator, IDictionary<string, CriteriaOperator>>` type. The tuple's first item is a criteria operator that cannot be parsed during the internal logic execution. Usually it is null. The second item is a dictionary that stores parsed criteria operators and column names.
+To modify a column's filter in code, you need to split the grid filter expression into column filter criteria. You can use the non-published `CriteriaColumnAffinityResolver.SplitByColumnNames` method for this purpose. The method receives the filter expression as a parameter and returns a value of the `Tuple<CriteriaOperator, IDictionary<string, CriteriaOperator>>` type. The tuple's first item is a criteria operator that cannot be parsed during the internal logic execution. Usually, it is null. The second item is a dictionary that stores parsed criteria operators and column names.
 
 1. Call the `SplitByColumnNames` method to get a dictionary of column filter criteria.
 
