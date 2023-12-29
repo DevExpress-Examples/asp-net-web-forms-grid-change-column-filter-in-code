@@ -5,9 +5,6 @@
 <!-- default badges end -->
 
 # Grid for ASP.NET Web Forms - How to programmatically change a column's filter criterion in the grid's filter expression
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/128535181/)**
-<!-- run online end -->
 
 This example demonstrates how to programmatically change a column's filter criterion on the server side.
 
